@@ -19,7 +19,6 @@ jobs:
 
     steps:
       - name: Display selected environment
-        run: echo "Deploying to ${{ inputs.environment }}"
         run: |
           echo "Deploying to ${{ inputs.environment }}"
           echo "Starting setup"
