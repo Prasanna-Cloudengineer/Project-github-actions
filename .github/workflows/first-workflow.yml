@@ -20,11 +20,11 @@ jobs:
     steps:
       - name: Display selected environment
         run: echo "Deploying to ${{ inputs.environment }}"
-        
-      - name: Application setup
         run: |
+          echo "Deploying to ${{ inputs.environment }}"
           echo "Starting setup"
           mkdir -p app
           cd app
           touch main.py
-          ls -la      
+          ls -la
+      
