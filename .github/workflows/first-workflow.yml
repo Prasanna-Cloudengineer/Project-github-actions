@@ -1,25 +1,22 @@
-
-name: My First GitHub Actions Workflow
+name: Environment Deployment
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Select deployment environment
+        required: true
+        type: choice
+        options:
+          - dev
+          - qa
+          - uat
+          - prod
 
 jobs:
-  first-job:
-    name: My First Job
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print welcome message
-        run: echo "Hello! My first GitHub Actions workflow"
-
-      - name: Check current directory
-        run: pwd
-
-      - name: Check available files
-        run: ls -la
-
-      - name: Check system information
-        run: uname -a
+      - name: Display selected environment
+        run: echo "Deploying to ${{ inputs.environment }}"
